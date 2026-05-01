@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Her💖</title>
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f5e9ff;
+  overflow-x: hidden;
+}
+
+/* SECTIONS */
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 50px 40px;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  max-width: 520px;
+}
+
+/* LIGHT PURPLE THEME */
+#home { background: linear-gradient(135deg, #d8b4f8, #f3e8ff); }
+#yesPage { background: #f5e9ff; }
+#letterSection { background: #f9f5ff; }
+#gallerySection { background: #efe7ff; }
+#final { background: #e6d6ff; }
+
+/* TEXT */
+h1 { color: #7b2cbf; }
+h2 { color: #5a189a; }
+
+.subtitle {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.bigText {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* BUTTONS */
+button {
+  padding: 14px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#yesBtn {
+  background: #9d4edd;
+  color: white;
+}
+
+#noBtn {
+  background: #eee;
+  color: #7b2cbf;
+  position: absolute;
+}
+
+/* HIDDEN */
+.hidden { display: none; }
+
+/* HEARTS */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* ENVELOPE */
+.envelope {
+  width: 180px;
+  height: 120px;
+  background: #c77dff;
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 30px auto;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 90px solid transparent;
+  border-right: 90px solid transparent;
+  border-top: 60px solid #e0aaff;
+}
+
+/* PHOTOS */
+.choicePhotos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.choicePhotos img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+img {
+  image-rendering: auto;
+  transform: translateZ(0);
+}
+
+/* LETTER */
+.letter {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  margin-top: 30px;
+  display: none;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 900px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="priya_phool.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<section id="home">
+  <div class="card">
+    <h1>Happy Birthday Didu💖</h1>
+    <div class="subtitle">
+      I have something special for you…
+    </div>
+    <div class="bigText">Do you want to see it? 🎁</div>
+
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <button id="noBtn" onmouseover="moveNo()">No 😅</button>
+      <button id="yesBtn" onclick="start()">Yes 💜</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="yesPage" class="hidden">
+  <div class="card">
+    <h2>We Grew Up Together🫂 </h2>
+
+    <div class="choicePhotos">
+      <img src="1.jpeg">
+      <img src="222.jpeg">
+    </div>
+
+    <div class="bigText">
+      From childhood chaos to now… still my favorite person 😘
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section id="letterSection" class="hidden">
+  <div>
+    <h2>A Letter For You 💌</h2>
+    <p>Tap the envelope 💜</p>
+
+    <div class="envelope" onclick="openLetter()"></div>
+
+    <div class="letter" id="letter">
+      <p>
+        Dear Didu💖<br><br>
+
+We have grown up together through so many memories 📸 and every moment with you means more than I can explain 💫  
+You have been my partner in chaos 😄 my comfort in tough times 🤗 and my constant in everything 💕  
+Thank you for standing by me when no one else did 🤝 and for being with me when it felt like it was me against the world 🌍  
+No matter how much we fight or tease each other 😈 you are still my favorite person and my biggest strength 💜💪  
+I’m truly lucky to have you 🍀 and I promise I will always be there for you just like you were for me 🤞🫶  
+
+ I love you more than words can say ❤️✨
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section id="gallerySection" class="hidden">
+  <div>
+    <h2>Our Memories 📸</h2>
+    <p>Every moment with you matters 🫶</p>
+
+    <div class="gallery">
+      <img src="8.jpeg">
+      <img src="7.jpeg">
+      <img src="3.jpeg">
+      <img src="44.jpeg">
+      <img src="55.jpeg">
+      <img src="66.jpeg">
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5 -->
+<section id="final" class="hidden">
+  <div>
+    <h2>My Promises🤞</h2>
+    <p>I’ll always be there for you</p>
+    <p>I’ll always support you</p>
+    <p>I’ll always annoy you 😄</p>
+  </div>
+</section>
+
+<!-- PAGE 6 -->
+<section id="final" class="hidden">
+  <div>
+    <h2> Once Again Happy Birthday Didu💖🎂💋 </h2>
+    <p>No matter what happens,  
+      you will always be my favorite person.
+      (Hehehhehhheheh)🫣
+
+      
+    </p>
+  </div>
+</section>
+
+<script>
+// MOVE NO BUTTON
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  btn.style.left = Math.random() * (window.innerWidth - 120) + "px";
+  btn.style.top = Math.random() * (window.innerHeight - 60) + "px";
+}
+
+// START EXPERIENCE
+function start() {
+  const music = document.getElementById("bgMusic");
+  music.play();
+
+  document.querySelectorAll(".hidden").forEach(sec => {
+    sec.style.display = "flex";
+  });
+
+  document.getElementById("yesPage").scrollIntoView({
+    behavior: "smooth"
+  });
+
+  startHearts();
+}
+
+// HEARTS
+function startHearts() {
+  setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💖";
+    h.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+  }, 300);
+}
+
+// LETTER OPEN
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+}
+</script>
+
+</body>
+</html>
